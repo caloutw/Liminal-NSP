@@ -1,0 +1,42 @@
+{
+    "html":{
+        "referer": false,
+        "POST": false,
+        "cross": false
+    },
+    "css":{
+        "referer": true,
+        "POST": false,
+        "cross": false
+    },
+    "js":{
+        "referer": true,
+        "POST": false,
+        "cross": false
+    },
+    "png":{
+        "referer": true,
+        "POST": false,
+        "cross": false
+    },
+    "jpg":{
+        "referer": true,
+        "POST": false,
+        "cross": false
+    },
+    "jepg":{
+        "referer": true,
+        "POST": false,
+        "cross": false
+    },
+    "webp":{
+        "referer": true,
+        "POST": false,
+        "cross": false
+    },
+    "json":{
+        "referer": true,
+        "POST": true,
+        "cross": false
+    }
+}

@@ -1,0 +1,21 @@
+{
+  "name": "liminal-nsp",
+  "version": "1.0.0",
+  "description": "Website framework with node.js",
+  "keywords": [
+    "Website"
+  ],
+  "license": "ISC",
+  "author": "caloutw",
+  "type": "module",
+  "main": "server/main.js",
+  "scripts": {
+    "server": "node --expose-gc --no-warnings --experimental-vm-modules server/main.js",
+    "cluster": "node --expose-gc --no-warnings --experimental-vm-modules server/cluster.js"
+  },
+  "dependencies": {
+    "exjsb": "^1.1.4",
+    "mime-types": "^3.0.1",
+    "ws": "^8.18.3"
+  }
+}

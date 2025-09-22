@@ -1,0 +1,6 @@
+{
+    "port": 3100,
+    "exjs": true,
+    "protect": true,
+    "debug": true
+}
