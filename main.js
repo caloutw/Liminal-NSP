@@ -182,22 +182,29 @@ serverHTTP.on("request", async (req, res) => {
     const user_IP = req.headers["x-forwarded-for"] || req.socket.remoteAddress;
 
     //轉交body
-    req.body = await new Promise(res => {
-        let body_content = "";
+    req.body = await new Promise((resolve) => {
+        const chunks = [];
 
         req.on('data', (chunk) => {
-            body_content += chunk;
-            return;
+            chunks.push(chunk);
         });
 
         req.on('end', () => {
-            let result_data = (() => {
-                try { return JSON.parse(body_content) } catch { return body_content };
-            })();
+            if (chunks.length === 0) return resolve(undefined);
 
-            res(body_content.length > 0 ? result_data : undefined);
-            return;
-        })
+            const bodyBuffer = Buffer.concat(chunks);
+
+            let result;
+            try {
+                result = JSON.parse(bodyBuffer.toString());
+            } catch {
+                result = bodyBuffer;
+            }
+
+            resolve(result);
+        });
+
+        req.on('error', () => resolve(undefined));
     });
 
     //先記錄Log
